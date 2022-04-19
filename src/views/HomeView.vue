@@ -1,5 +1,5 @@
 <template>
-    <div v-if="$auth.isAuthenticated">
+    <div v-if="$auth.isAuthenticated"> 
         <p>Welcome {{ $auth.email }}!</p>
         <router-link to="/logout">Logout</router-link>    
         <div class="movie-list">

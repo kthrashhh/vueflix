@@ -23,7 +23,7 @@
                     </div>
                     <hr class="my-4 text-white">
                     <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" @click="login">>LOG IN</button>
-                    <small class="text-muted"> New to Petflix? <a href="">Sign Up now</a><br></small>
+                    <small class="text-muted"> New to Petflix? <a href="/register">Sign Up now</a><br></small>
             </div>
         </div>
     </div>
