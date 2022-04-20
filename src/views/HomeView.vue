@@ -1,16 +1,13 @@
 <template>
     <div v-if="$auth.isAuthenticated"> 
-        <p>Welcome {{ $auth.email }}!</p>
-        <router-link to="/logout">Logout</router-link>    
+        <Header>welcome {{ $auth.email }}!</Header>   
         <div class="movie-list">
-        <div class="movie" v-for="movie in movies" :key="movie.id">
-            <router-link :to="`/movie/${movie.id}`">
-                <h3>{{ movie.title }}</h3>
-                <img :src="`https://apigerard.herokuapp.com/img/movies/thumbnailmk2/img${movie.id}.jpg`">
-            <h3>{{ movie.title }}</h3>
-            <img :src="`https://apigerard.herokuapp.com/img/movies/thumbnailmk2/img${movie.id}.jpg`">
-            </router-link>
-        </div>
+            <div class="movie" v-for="movie in movies" :key="movie.id">
+                <router-link :to="`/movie/${movie.id}`">
+                    <h3>{{ movie.title }}</h3>
+                    <img :src="`https://apigerard.herokuapp.com/img/movies/thumbnailmk2/img${movie.id}.jpg`">
+                </router-link>
+            </div>
         </div>
     </div>
     <div v-else>
@@ -21,8 +18,11 @@
 </template>
 
 <script>
+import Header from '../components/HeaderHome.vue';
 export default {
+    components: {Header},
     created(){
+        
         if(this.$auth.isAuthenticated){
             this.fetchMovies();
         }
@@ -43,12 +43,16 @@ export default {
 
 <style scoped>
 .movie-list {
+    margin-top: 70px;
     display: grid;
-    grid-template-columns: repeat(3,300px);
+    grid-template-columns: repeat(4,400px);
     gap: 1em;
 }
 
 .movie {
-    max-width: 300px;
+    max-width: 400px;
+}
+img{
+     width:400px;
 }
 </style>
